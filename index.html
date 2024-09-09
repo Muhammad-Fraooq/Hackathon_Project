@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Interactive Resume</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<style>
+  body{
+    background-image: url(/assets/images/background1.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  }
+</style>
+<body>
+     <nav class="navbar bg-white">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="brand-and-toggler">
+                    <a href="/resume.html" class="navbar-brand">
+                        <img  src="/assets/images/cv_logo.jpg" alt="" class="navbar-brand-icon">
+                        <span class="navbar-brand-text">Generated <span>resume.</span></span>
+                    </a>
+                    <h1>Static Interactive Resume</h1>
+                </div>
+            </div>
+        </div>
+    </nav>  
+  <div class="resume-container">
+    <section class="personal-info">
+      <h2>Personal Information</h2>
+      <img src="/assets/images/profile-pic.jpg" alt="Profile Picture" class="profile-picture">
+      <p><strong>Name:</strong> Muhammad Farooq</p>
+      <p><strong>Contact:</strong> muhammad888xyz@gmail.com</p>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <p><strong>IT Center :</strong> Governor House Karachi.</p>
+      <p><strong>Degree:</strong> Certified Cloud Applied Generative AI Engineer (GenEng).</p>
+    </section>
+
+    <section class="skills" id="skills-section">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>React.js,Next.js</li>
+      </ul>
+    </section>
+
+    <section class="work-experience">
+      <h2>Work Experience</h2>
+      <p><strong>Position:</strong> Frontend Developer at XYZ Corp</p>
+      <p><strong>Duration:</strong> 2024 - Present</p>
+    </section>
+
+    <button id="toggle-skills-btn">Toggle Skills Section</button>
+  </div>
+   <footer class="footer bg-dark">
+    <div class="container">
+        <div class="footer-content text-center">
+            <p class="fs-15">&copy;Copyright 2024. All Rights Reserved - <span>build.resume</span></p>
+        </div>    
+    </div>    
+</footer>  
+  <script src="/assets/js/p_inform.js"></script>
+</body>
+</html>
