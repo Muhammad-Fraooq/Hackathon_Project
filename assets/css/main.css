@@ -1147,7 +1147,29 @@ button:hover {
 .footer-content span {
     color: #e8e5e3;
 }
-
+/* Basic button styles */
+#resume-create {
+    background-color: #007bff; /* Blue background */
+    color: white;              /* White text */
+    border: none;              /* Remove border */
+    border-radius: 5px;        /* Rounded corners */
+    padding: 8px 15px;
+    font-size: 16px;           /* Font size */
+    cursor: pointer;           /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+  }
+  
+  /* Button hover effect */
+  #resume-create:hover {
+    background-color: #0056b3; /* Darker blue background on hover */
+  }
+  
+  /* Button focus effect */
+  #resume-create:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5); /* Blue shadow on focus */
+  }
+  
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar .container {
