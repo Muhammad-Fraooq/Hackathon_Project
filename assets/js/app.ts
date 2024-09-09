@@ -157,6 +157,21 @@ const showUserInputs = (formData: any): void => {
     designationDsp.innerHTML = formData.designation;
     summaryDsp.innerHTML = formData.summary;
 
+     // Name and other fields
+     nameDsp.innerHTML = `${formData.firstname} ${formData.middlename ? formData.middlename : ''} ${formData.lastname}`;
+    
+     // Displaying phone number with label
+     phonenoDsp.innerHTML = `<strong>Phone Number: </strong> ${formData.phoneno}`;
+     
+     // Displaying email with label
+     emailDsp.innerHTML = `<strong>Email: </strong> ${formData.email}`;
+     
+     // Displaying address with label
+     addressDsp.innerHTML = `<strong>Address: </strong> ${formData.address}`;
+     
+     // Displaying summary with label
+     summaryDsp.innerHTML = `<strong>Summary: </strong> ${formData.summary}`;
+     
     showListData(formData.achievements, achievementsDsp, ['achieve_title', 'achieve_description']);
     showListData(formData.experiences, experiencesDsp, ['exp_title', 'exp_organization', 'exp_location', 'exp_start_date', 'exp_end_date', 'exp_description']);
     showListData(formData.educations, educationsDsp, ['edu_school', 'edu_degree', 'edu_city', 'edu_start_date', 'edu_graduation_date', 'edu_description']);
@@ -205,6 +220,9 @@ function previewImage(event: Event) {
         reader.readAsDataURL(file); // Read the image file as a data URL
     }
 }
+
+  
 function printCV() {
     window.print(); // This will print the resume
 }
+
