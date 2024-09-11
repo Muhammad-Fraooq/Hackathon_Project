@@ -150,34 +150,84 @@ const showListData = (list: { [key: string]: string }[], listElem: HTMLElement, 
 };
 
 const showUserInputs = (formData: any): void => {
-    nameDsp.innerHTML = `${formData.firstname} ${formData.middlename ? formData.middlename : ''} ${formData.lastname}`;
-    phonenoDsp.innerHTML = formData.phoneno;
-    emailDsp.innerHTML = formData.email;
-    addressDsp.innerHTML = formData.address;
-    designationDsp.innerHTML = formData.designation;
-    summaryDsp.innerHTML = formData.summary;
+    // Displaying basic information with labels
+    document.getElementById('fullname_dsp')!.innerHTML = `${formData.firstname} ${formData.middlename || ''} ${formData.lastname}`;
+    document.getElementById('phoneno_dsp')!.innerHTML = `<strong>Phone Number: </strong>${formData.phoneno}`;
+    document.getElementById('email_dsp')!.innerHTML = `<strong>Email: </strong>${formData.email}`;
+    document.getElementById('address_dsp')!.innerHTML = `<strong>Address: </strong>${formData.address}`;
+    document.getElementById('summary_dsp')!.innerHTML = `<strong>Summary: </strong>${formData.summary}`;
+    document.getElementById('designation_dsp')!.innerHTML = `<strong>Designation: </strong>${formData.designation}`;
+    // document.getElementById('achievements_dsp')!.innerHTML = `<strong>Achievemnts: </strong>${formData.achievements}`;
 
-     // Name and other fields
-     nameDsp.innerHTML = `${formData.firstname} ${formData.middlename ? formData.middlename : ''} ${formData.lastname}`;
-    
-     // Displaying phone number with label
-     phonenoDsp.innerHTML = `<strong>Phone Number: </strong> ${formData.phoneno}`;
-     
-     // Displaying email with label
-     emailDsp.innerHTML = `<strong>Email: </strong> ${formData.email}`;
-     
-     // Displaying address with label
-     addressDsp.innerHTML = `<strong>Address: </strong> ${formData.address}`;
-     
-     // Displaying summary with label
-     summaryDsp.innerHTML = `<strong>Summary: </strong> ${formData.summary}`;
-     
-    showListData(formData.achievements, achievementsDsp, ['achieve_title', 'achieve_description']);
-    showListData(formData.experiences, experiencesDsp, ['exp_title', 'exp_organization', 'exp_location', 'exp_start_date', 'exp_end_date', 'exp_description']);
-    showListData(formData.educations, educationsDsp, ['edu_school', 'edu_degree', 'edu_city', 'edu_start_date', 'edu_graduation_date', 'edu_description']);
-    showListData(formData.projects, projectsDsp, ['proj_title', 'proj_link', 'proj_description']);
-    showListData(formData.skills, skillsDsp, ['skill']);
+     // Show experiences with relevant details
+     if (formData.achievements.length) {
+        let achievementsHtml = '<ul>';
+        formData.achievements.forEach((exp: any) => {
+            achievementsHtml += `<li>
+                <strong>Title: </strong>${exp.achieve_title}
+                <br/><strong>Description: </strong>${exp.achieve_description}
+            </li>`;
+        });
+        achievementsHtml += '</ul>';
+        document.getElementById('achievements_dsp')!.innerHTML = achievementsHtml;
+    }
+
+    // Show experiences with relevant details
+    if (formData.experiences.length) {
+        let experienceHtml = '<ul>';
+        formData.experiences.forEach((exp: any) => {
+            experienceHtml += `<li><strong>Title: </strong>${exp.exp_title} at <strong>${exp.exp_organization}</strong> 
+                <br/><strong>Location: </strong>${exp.exp_location}
+                <br/><strong>Start Date: </strong>${exp.exp_start_date} 
+                <br/><strong>End Date: </strong>${exp.exp_end_date}
+                <br/><strong>Description: </strong>${exp.exp_description}
+            </li>`;
+        });
+        experienceHtml += '</ul>';
+        document.getElementById('experiences_dsp')!.innerHTML = experienceHtml;
+    }
+
+    // Show educations with relevant details
+    if (formData.educations.length) {
+        let educationHtml = '<ul>';
+        formData.educations.forEach((edu: any) => {
+            educationHtml += `<li><strong>School: </strong>${edu.edu_school}
+                <br/><strong>Degree: </strong>${edu.edu_degree}
+                <br/><strong>City: </strong>${edu.edu_city}
+                <br/><strong>Start Date: </strong>${edu.edu_start_date}
+                <br/><strong>End Date: Persent </strong>${edu.edu_graduation_date}
+                <br/><strong>Description: </strong>${edu.edu_description}
+            </li>`;
+        });
+        educationHtml += '</ul>';
+        document.getElementById('educations_dsp')!.innerHTML = educationHtml;
+    }
+
+    // Show projects with links
+    if (formData.projects.length) {
+        let projectHtml = '<ul>';
+        formData.projects.forEach((proj: any) => {
+            projectHtml += `<li><strong>Project: </strong>${proj.proj_title}
+                <br/><strong>Link: </strong><a href="${proj.proj_link}" target="_blank">${proj.proj_link}</a>
+                <br/><strong>Description: </strong>${proj.proj_description}
+            </li>`;
+        });
+        projectHtml += '</ul>';
+        document.getElementById('projects_dsp')!.innerHTML = projectHtml;
+    }
+
+    // Show skills
+    if (formData.skills.length) {
+        let skillsHtml = '<ul>';
+        formData.skills.forEach((skill: any) => {
+            skillsHtml += `<li>${skill.skill}</li>`;
+        });
+        skillsHtml += '</ul>';
+        document.getElementById('skills_dsp')!.innerHTML = skillsHtml;
+    }
 };
+
+
 
 // Fetching form data and displaying it
 const generateCV = (): void => {
@@ -225,4 +275,3 @@ function previewImage(event: Event) {
 function printCV() {
     window.print(); // This will print the resume
 }
-

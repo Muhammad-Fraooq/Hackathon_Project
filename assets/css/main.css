@@ -1234,6 +1234,10 @@ button:hover {
 
     button {
         padding: 6px 12px;
-        font-size: 0.8rem;
+        font-size: 1rem;
+    }
+    #resume-create{
+        padding: 8px 8px;
+        font-size: 1rem;
     }
 }
